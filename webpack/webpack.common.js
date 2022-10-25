@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const DEV_SERVER_PORT = 3000;
 
@@ -16,6 +17,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './src/index.html'
         }),
+        new CopyPlugin({
+            patterns: [{from: 'src', to: 'dist'}]
+        })
     ],
     resolve: {
         extensions: ['.js', '.jsx', '.ts', '.tsx']
