@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "target": "ES5",
+        "module": "ESNext",
+        "moduleResolution": "node",
+        "lib": ["DOM", "ESNext"],
+        "allowJs": true,
+        "skipLibCheck": true,
+        "esModuleInterop": true,
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "forceConsistentCasingInFileNames": true,
+        "noFallthroughCasesInSwitch": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
+        "plugins": [{ "name": "typescript-plugin-css-modules" }],
+
+        /* Base directory to resolve non-absolute module names. */
+        "baseUrl": "src"
+    },
+    "include": ["src", "declaration.d.ts"]
+}
