@@ -7,8 +7,8 @@ const DEV_SERVER_PORT = 3000;
 module.exports = {
     entry: ['./src/index.tsx'],
     output: {
-        path: path.resolve(__dirname, '../dist'),
-    },    
+        path: path.resolve(__dirname, '../dist')
+    },
     devServer: {
         port: DEV_SERVER_PORT,
         hot: true
@@ -18,7 +18,7 @@ module.exports = {
             template: './src/index.html'
         }),
         new CopyPlugin({
-            patterns: [{from: 'src', to: 'dist'}]
+            patterns: [{ from: 'src', to: 'dist' }]
         })
     ],
     resolve: {
@@ -33,16 +33,29 @@ module.exports = {
             },
             {
                 test: /\.(scss|css)$/,
-                use: ['style-loader', 'css-loader', 'sass-loader']
+                use: [
+                    { loader: 'style-loader' },
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            modules: {
+                                localIdentName: '[path][name]__[local]--[hash:base64:5]'
+                            }
+                        }
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
             },
             {
                 test: /\.(png|jpg|gif|jpeg)$/,
-                type: 'asset/resource',
+                type: 'asset/resource'
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf|svg)$/,
-                type: 'asset/inline',
-            },
+                type: 'asset/inline'
+            }
         ]
     }
-}
+};

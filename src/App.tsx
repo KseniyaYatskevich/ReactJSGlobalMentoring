@@ -1,5 +1,5 @@
-import './styles.scss';
+import { AppLayout } from './components/AppLayout/AppLayout';
 
 export const App = () => {
-    return <h1>Hello React</h1>;
+    return <AppLayout />;
 };
