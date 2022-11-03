@@ -1,3 +1,6 @@
+import { useState } from 'react';
+
+import brokenImage from '../../asset/images/emptyPoster.jpg';
 import styles from './MovieCard.module.scss';
 
 interface Movie {
@@ -16,10 +19,22 @@ interface Movie {
 }
 
 export const MovieCard = ({ title, release_date, poster_path, genres }: Movie) => {
+    const [imageFailed, setImageFailed] = useState(false);
+
     return (
         <div className={styles.wrapper}>
             <a href={title}>
-                <img className={styles.image} src={poster_path} alt={title} />
+                {!imageFailed ? (
+                    <img
+                        src={poster_path}
+                        className={styles.image}
+                        alt={title}
+                        onError={() => setImageFailed(true)}
+                        loading="lazy"
+                    />
+                ) : (
+                    <img src={brokenImage} alt={title} className={styles.brokenImage} />
+                )}
                 <div className={styles.description}>
                     <div>
                         <p className={styles.title}>{title}</p>

@@ -99,7 +99,7 @@ export const movies = [
         release_date: '2017-10-25',
         poster_path: 'https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg',
         overview:
-            'Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the prophecy of destruction to his homeworld and the end of Asgardian civilization, at the hands of an all-powerful new threat, the ruthless Hela.',
+            'Thor is imprisoned on the other side of the universe and finds himself in a race against time to get back to Asgard to stop Ragnarok, the prophecy of …130 more…',
         budget: 180000000,
         revenue: 854229371,
         genres: ['Action', 'Adventure', 'Fantasy'],
@@ -129,10 +129,115 @@ export const movies = [
         release_date: '2017-12-01',
         poster_path: 'https://image.tmdb.org/t/p/w500/k4FwHlMhuRR5BISY2Gm2QZHlH5Q.jpg',
         overview:
-            'An other-worldly story, set against the backdrop of Cold War era America circa 1962, where a mute janitor working at a lab falls in love with an amphibious man being held captive there and devises a plan to help him escape.',
+            'An other-worldly story, set against the backdrop of Cold War era America circa 1962, where a mute janitor working at a lab falls in love with an amphi…73 more…',
         budget: 19500000,
         revenue: 185545281,
         genres: ['Drama', 'Fantasy', 'Romance'],
         runtime: 123
+    },
+    {
+        id: 198663,
+        title: 'The Maze Runner',
+        tagline: 'Remember. Survive. Run.',
+        vote_average: 7,
+        vote_count: 7502,
+        release_date: '2014-09-10',
+        poster_path: 'https://image.tmdb.org/t/p/w500/coss7RgL0NH6g4fC2s5atvf3dFO.jpg',
+        overview:
+            "Set in a post-apocalyptic world, young Thomas is deposited in a community of boys after his memory is erased, soon learning they're all trapped in a m…84 more…",
+        budget: 34000000,
+        revenue: 348300000,
+        genres: ['Action', 'Mystery', 'Science Fiction', 'Thriller'],
+        runtime: 113
+    },
+    {
+        id: 141052,
+        title: 'Justice League',
+        tagline: '',
+        vote_average: 6.4,
+        vote_count: 3960,
+        release_date: '2017-11-15',
+        poster_path: 'https://image.tmdb.org/t/p/w500/eifGNCSDuxJeS1loAXil5bIGgvC.jpg',
+        overview:
+            "Fuelled by his restored faith in humanity and inspired by Superman's selfless act, Bruce Wayne and Diana Prince assemble a team of metahumans consisti…167 more…",
+        budget: 500000000,
+        revenue: 655894816,
+        genres: ['Action', 'Adventure', 'Fantasy', 'Science Fiction'],
+        runtime: 120
+    },
+    {
+        id: 268896,
+        title: 'Pacific Rim: Uprising',
+        tagline: 'Rise Up',
+        vote_average: 6,
+        vote_count: 318,
+        release_date: '2018-03-21',
+        poster_path: 'https://image.tmdb.org/t/p/w500/v5HlmJK9bdeHxN2QhaFP1ivjX3U.jpg',
+        overview:
+            'It has been ten years since The Battle of the Breach and the oceans are still, but restless. Vindicated by the victory at the Breach, the Jaeger progr…206 more…',
+        budget: 150000000,
+        revenue: 150613316,
+        genres: ['Action', 'Fantasy', 'Science Fiction', 'Adventure'],
+        runtime: 111
+    },
+    {
+        id: 353486,
+        title: 'Jumanji: Welcome to the Jungle',
+        tagline: 'The game has evolved.',
+        vote_average: 6.5,
+        vote_count: 3330,
+        release_date: '2017-12-09',
+        poster_path: 'https://image.tmdb.org/t/p/w500/bXrZ5iHBEjH7WMidbUDQ0U2xbmr.jpg',
+        overview:
+            "The tables are turned as four teenagers are sucked into Jumanji's world - pitted against rhinos, black mambas and an endless variety of jungle traps a…65 more…",
+        budget: 90000000,
+        revenue: 928901353,
+        genres: ['Action', 'Adventure', 'Comedy', 'Family'],
+        runtime: 119
+    },
+    {
+        id: 206647,
+        title: 'Spectre',
+        tagline: 'A Plan No One Escapes',
+        vote_average: 6.3,
+        vote_count: 5402,
+        release_date: '2015-10-26',
+        poster_path: 'https://image.tmdb.org/t/p/w500/hE24GYddaxB9MVZl1CaiI86M3kp.jpg',
+        overview:
+            'A cryptic message from Bond’s past sends him on a trail to uncover a sinister organization. While M battles political forces to keep the secret servic…90 more…',
+        budget: 245000000,
+        revenue: 880674609,
+        genres: ['Action', 'Adventure', 'Crime'],
+        runtime: 148
+    },
+    {
+        id: 399035,
+        title: 'The Commuter',
+        tagline: 'Lives are on the line',
+        vote_average: 5.8,
+        vote_count: 655,
+        release_date: '2018-01-11',
+        poster_path: 'https://image.tmdb.org/t/p/w500/rDeGK6FIUfVcXmuBdEORPAGPMNg.jpg',
+        overview:
+            'A businessman on his daily commute home gets unwittingly caught up in a criminal conspiracy that threatens not only his life but the lives of those around him.',
+        budget: 30000000,
+        revenue: 105652788,
+        genres: ['Action', 'Crime', 'Drama'],
+        runtime: 104
+    },
+    {
+        id: 272,
+        title: 'Batman Begins',
+        tagline: 'Evil fears the knight.',
+        vote_average: 7.5,
+        vote_count: 9138,
+        release_date: '2005-06-10',
+        poster_path: 'https://image.tmdb.org/t/p/w500/dr6x4GyyegBWtinPBzipY02J2lV.jpg',
+        overview:
+            'Driven by tragedy, billionaire Bruce Wayne dedicates his life to uncovering and defeating the corruption that plagues his home, Gotham City.  Unable t…119 more…',
+        budget: 150000000,
+        revenue: 374218673,
+        genres: ['Action', 'Crime', 'Drama'],
+        runtime: 140
     }
 ];
