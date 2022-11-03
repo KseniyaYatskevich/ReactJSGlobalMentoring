@@ -31,7 +31,7 @@ export const Navigation = () => {
             <div className={styles.selector}>
                 <span className={styles.label}>Sort by:</span>
                 <select className={styles.selectWrapper}>
-                    <option className={styles.selectItem} value="release date" selected>
+                    <option className={styles.selectItem} value="release date" defaultValue="release date">
                         release date
                     </option>
                     <option className={styles.selectItem} value="rating">

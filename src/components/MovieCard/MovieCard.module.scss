@@ -1,0 +1,49 @@
+.wrapper {
+    width: 100%;
+    max-width: 330px;
+    margin: 10px 0;
+    flex-shrink: 1;
+    flex-grow: 0;
+
+    & a {
+        text-decoration: none;
+
+        &:hover {
+            .description {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.image {
+    flex-shrink: 0;
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+
+.description {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    color: #ffffff;
+    opacity: 0.7;
+    padding: 10px 0;
+}
+
+.title {
+    margin: 0;
+    font-size: 18px;
+}
+
+.genre {
+    font-size: 14px;
+}
+
+.year {
+    font-size: 14px;
+    padding: 0 10px;
+    border-radius: 3px;
+    border: 1px solid #ffffff;
+}
