@@ -1,6 +1,2 @@
 node_modules
 dist
-webpack.dev.js
-webpack.prod.js
-webpack.common.js
-webpack.config.js
