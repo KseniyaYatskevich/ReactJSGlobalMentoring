@@ -8,19 +8,23 @@ import styles from './MovieList.module.scss';
 
 interface MovieListProps {
     selectedGenre: string;
+    searchString: string;
 }
 
-export const MovieList = ({ selectedGenre }: MovieListProps) => {
+export const MovieList = ({ selectedGenre, searchString }: MovieListProps) => {
     const [filteredMovies, setFilteredMovies] = useState(movies);
 
     useEffect(
         () =>
             setFilteredMovies(
                 movies.filter((movie) =>
-                    !selectedGenre || selectedGenre === 'All' ? movie : movie.genres.includes(selectedGenre)
+                    !selectedGenre || selectedGenre === 'All'
+                        ? movie.title.toLowerCase().includes(searchString.toLowerCase())
+                        : movie.title.toLowerCase().includes(searchString.toLowerCase()) &&
+                          movie.genres.includes(selectedGenre)
                 )
             ),
-        [selectedGenre]
+        [searchString, selectedGenre]
     );
 
     return (

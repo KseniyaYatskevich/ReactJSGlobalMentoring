@@ -1,14 +1,16 @@
-import { useState } from 'react';
 import styles from './Search.module.scss';
 
-export const Search = () => {
-    const [search, setSearch] = useState('');
+interface SearchProps {
+    searchString: string;
+    handleSearch: (arg0: string) => void;
+}
 
-    const isSearchEmpty = search.trim().length === 0;
-    const canSearch = search.trim().length > 1;
+export const Search = ({ searchString, handleSearch }: SearchProps) => {
+    const isSearchEmpty = searchString.trim().length === 0;
+    const canSearch = searchString.trim().length > 1;
 
     const onSearchValueChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setSearch(event.target.value);
+        handleSearch(event.target.value);
     };
 
     const onSearchSubmit = (e: React.FormEvent) => {
@@ -24,7 +26,7 @@ export const Search = () => {
                     maxLength={50}
                     type="search"
                     placeholder="What do you want to watch?"
-                    value={search}
+                    value={searchString}
                     onChange={onSearchValueChange}
                 />
                 <button
