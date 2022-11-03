@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { movies } from './movies';
 
 import { MovieCard } from '../MovieCard/MovieCard';
+import { ErrorBoundary } from '../ErrorBoundary/ErrorBoundary';
 
 import styles from './MovieList.module.scss';
 
@@ -29,14 +30,20 @@ export const MovieList = ({ selectedGenre, searchString }: MovieListProps) => {
 
     return (
         <>
-            <div className={styles.searchResults}>
-                <span>{filteredMovies.length}</span> movies found
-            </div>
-            <div className={styles.wrapper}>
-                {filteredMovies.map((movie) => (
-                    <MovieCard {...movie} key={movie.id} />
-                ))}
-            </div>
+            {filteredMovies.length ? (
+                <>
+                    <div className={styles.searchResults}>
+                        <span>{filteredMovies.length}</span> movies found
+                    </div>
+                    <div className={styles.wrapper}>
+                        {filteredMovies.map((movie) => (
+                            <MovieCard {...movie} key={movie.id} />
+                        ))}
+                    </div>
+                </>
+            ) : (
+                <ErrorBoundary />
+            )}
         </>
     );
 };
