@@ -2,6 +2,8 @@ import { clsx } from 'clsx';
 
 import { genres } from './data';
 
+import { SortingDropdown } from '../SortingDropdown/SortingDropdown';
+
 import styles from './Navigation.module.scss';
 
 interface NavigationProps {
@@ -33,18 +35,7 @@ export const Navigation = ({ selectedGenre, handleToggle }: NavigationProps) => 
                 })}
             </ul>
             <div className={styles.selector}>
-                <span className={styles.label}>Sort by:</span>
-                <select className={styles.selectWrapper}>
-                    <option className={styles.selectItem} value="release date" defaultValue="release date">
-                        release date
-                    </option>
-                    <option className={styles.selectItem} value="rating">
-                        rating
-                    </option>
-                    <option className={styles.selectItem} value="popularity">
-                        popularity
-                    </option>
-                </select>
+                <SortingDropdown />
             </div>
         </div>
     );
