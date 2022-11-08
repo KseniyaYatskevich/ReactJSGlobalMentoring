@@ -21,6 +21,8 @@ interface Movie {
 export const MovieCard = ({ title, release_date, poster_path, genres }: Movie) => {
     const [imageFailed, setImageFailed] = useState(false);
 
+    const releaseDate = new Date(release_date).getFullYear();
+
     return (
         <div className={styles.wrapper}>
             <a href={title}>
@@ -40,7 +42,7 @@ export const MovieCard = ({ title, release_date, poster_path, genres }: Movie) =
                         <p className={styles.title}>{title}</p>
                         <p className={styles.genre}>{genres.join(', ')}</p>
                     </div>
-                    <div className={styles.year}>{release_date.slice(0, 4)}</div>
+                    <div className={styles.year}>{releaseDate}</div>
                 </div>
             </a>
         </div>
