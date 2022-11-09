@@ -3,8 +3,13 @@ import { Dropdown } from '../DropDown/DropDown';
 
 import styles from './SortingDropDown.module.scss';
 
-export const SortingDropdown = () => {
-    const sortByParam = 'release_date';
+interface SortingProps {
+    sorting: string;
+    handleSorting: (arg0: string) => void;
+}
+
+export const SortingDropdown = ({ sorting, handleSorting }: SortingProps) => {
+    const sortByParam = sorting || 'release_date';
 
     const sortByOptions = [
         {
@@ -22,7 +27,7 @@ export const SortingDropdown = () => {
     ];
 
     const onSortSelect = (e: ChangeEvent<HTMLSelectElement>) => {
-        console.log(e.target.value);
+        handleSorting(e.target.value);
     };
 
     return (

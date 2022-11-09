@@ -8,10 +8,12 @@ import styles from './Navigation.module.scss';
 
 interface NavigationProps {
     selectedGenre: string;
+    sorting: string;
     handleToggle: (arg0: string) => void;
+    handleSorting: (arg0: string) => void;
 }
 
-export const Navigation = ({ selectedGenre, handleToggle }: NavigationProps) => {
+export const Navigation = ({ selectedGenre, sorting, handleToggle, handleSorting }: NavigationProps) => {
     const activeGenre = selectedGenre ? selectedGenre : 'All';
 
     return (
@@ -35,7 +37,7 @@ export const Navigation = ({ selectedGenre, handleToggle }: NavigationProps) => 
                 })}
             </ul>
             <div className={styles.selector}>
-                <SortingDropdown />
+                <SortingDropdown handleSorting={handleSorting} sorting={sorting} />
             </div>
         </div>
     );
