@@ -1,0 +1,28 @@
+.dialog {
+    padding: 0;
+    background: #232323;
+    border: 0;
+    border-radius: 4px;
+    color: #ffffff;
+
+    &::backdrop {
+        background: #232323;
+        opacity: 0.9;
+    }
+}
+
+.content {
+    position: relative;
+
+    min-width: 710px;
+    min-height: 470px;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 0;
+    right: 24px;
+    border: 0;
+    background: transparent;
+    color: #ffffff;
+}

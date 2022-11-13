@@ -1,5 +1,5 @@
 import { ChangeEvent } from 'react';
-import ChevronDown from '../../asset/images/chevron.svg';
+import Chevron from '../../asset/images/chevron.svg';
 
 import styles from './DropDown.module.scss';
 
@@ -23,7 +23,7 @@ export const Dropdown = ({ options, selected, onChange, id }: IDropdownProps) =>
                     </option>
                 ))}
             </select>
-            <img className={styles.icon} src={ChevronDown} alt="" width={22} height={10} aria-hidden="true" />
+            <Chevron className={styles.icon} />
         </div>
     );
 };
