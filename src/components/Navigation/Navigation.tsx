@@ -1,6 +1,6 @@
 import { clsx } from 'clsx';
 
-import { genres } from './data';
+import { genres } from './genres';
 
 import { SortingDropdown } from '../SortingDropdown/SortingDropdown';
 
@@ -23,14 +23,14 @@ export const Navigation = ({ selectedGenre, sorting, handleToggle, handleSorting
                     return (
                         <li
                             role="menuitem"
-                            className={clsx(styles.item, activeGenre === genre.name && styles.active)}
+                            className={clsx(styles.item, activeGenre === genre.value && styles.active)}
                             key={genre.id}
                             tabIndex={0}
-                            onClick={() => handleToggle(genre.name)}
-                            onKeyDown={() => handleToggle(genre.name)}
+                            onClick={() => handleToggle(genre.value)}
+                            onKeyDown={() => handleToggle(genre.value)}
                         >
-                            <a className={styles.link} href="#genre.name">
-                                {genre.name}
+                            <a className={styles.link} href="#genre.value">
+                                {genre.value}
                             </a>
                         </li>
                     );
