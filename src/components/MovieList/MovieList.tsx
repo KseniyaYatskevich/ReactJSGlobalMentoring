@@ -11,6 +11,9 @@ interface MovieListProps {
     selectedGenre: string;
     searchString: string;
     sorting: string;
+    setIsEditMovie: (arg0: boolean) => void;
+    setDialogOpened: (arg0: boolean) => void;
+    setIsDeleteMovie: (arg0: boolean) => void;
 }
 
 interface Movie {
@@ -28,7 +31,14 @@ interface Movie {
     runtime: number;
 }
 
-export const MovieList = ({ selectedGenre, searchString, sorting }: MovieListProps) => {
+export const MovieList = ({
+    selectedGenre,
+    searchString,
+    sorting,
+    setIsEditMovie,
+    setDialogOpened,
+    setIsDeleteMovie
+}: MovieListProps) => {
     const [filteredMovies, setFilteredMovies] = useState(movies);
 
     const sortMovies = (arr: Movie[], sorting: string) => {
@@ -65,7 +75,13 @@ export const MovieList = ({ selectedGenre, searchString, sorting }: MovieListPro
                     </div>
                     <div className={styles.wrapper}>
                         {filteredMovies.map((movie) => (
-                            <MovieCard {...movie} key={movie.id} />
+                            <MovieCard
+                                {...movie}
+                                key={movie.id}
+                                setIsEditMovie={setIsEditMovie}
+                                setDialogOpened={setDialogOpened}
+                                setIsDeleteMovie={setIsDeleteMovie}
+                            />
                         ))}
                     </div>
                 </>

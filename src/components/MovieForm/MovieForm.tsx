@@ -1,6 +1,5 @@
 import { useState } from 'react';
 
-import { clsx } from 'clsx';
 import styles from './MovieForm.module.scss';
 
 interface MovieFormProps {
@@ -105,7 +104,7 @@ export const MovieForm = ({ title }: MovieFormProps) => {
                     />
                 </div>
                 <div className={styles.actionBtn}>
-                    <button type="reset" className={clsx(styles.btn, styles.resetBtn)}>
+                    <button type="reset" className={styles.btn}>
                         Reset
                     </button>
                     <button type="submit" className={styles.btn}>

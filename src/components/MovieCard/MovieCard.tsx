@@ -19,9 +19,20 @@ interface Movie {
     revenue: number;
     genres: string[];
     runtime: number;
+    setIsEditMovie: (arg0: boolean) => void;
+    setDialogOpened: (arg0: boolean) => void;
+    setIsDeleteMovie: (arg0: boolean) => void;
 }
 
-export const MovieCard = ({ title, release_date, poster_path, genres }: Movie) => {
+export const MovieCard = ({
+    title,
+    release_date,
+    poster_path,
+    genres,
+    setIsEditMovie,
+    setDialogOpened,
+    setIsDeleteMovie
+}: Movie) => {
     const [imageFailed, setImageFailed] = useState(false);
     const [isMoreMenuOppened, setIsMoreMenuOppened] = useState(false);
 
@@ -35,6 +46,20 @@ export const MovieCard = ({ title, release_date, poster_path, genres }: Movie) =
         e.preventDefault();
         e.stopPropagation();
         setIsMoreMenuOppened(false);
+    };
+
+    const editMovie = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsEditMovie(true);
+        setDialogOpened(true);
+    };
+
+    const deteleMovie = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setIsDeleteMovie(true);
+        setDialogOpened(true);
     };
 
     const releaseDate = new Date(release_date).getFullYear();
@@ -51,10 +76,10 @@ export const MovieCard = ({ title, release_date, poster_path, genres }: Movie) =
                         <button className={styles.closeBtn} type="button" onClick={onClose}>
                             <Close />
                         </button>
-                        <button className={styles.menuBtn} type="button">
+                        <button className={styles.menuBtn} type="button" onClick={editMovie}>
                             Edit
                         </button>
-                        <button className={styles.menuBtn} type="button">
+                        <button className={styles.menuBtn} type="button" onClick={deteleMovie}>
                             Delete
                         </button>
                     </div>

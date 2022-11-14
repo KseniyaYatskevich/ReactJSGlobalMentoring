@@ -7,9 +7,12 @@ import styles from './Main.module.scss';
 
 interface MainProps {
     searchString: string;
+    setIsEditMovie: (arg0: boolean) => void;
+    setDialogOpened: (arg0: boolean) => void;
+    setIsDeleteMovie: (arg0: boolean) => void;
 }
 
-export const Main = ({ searchString }: MainProps) => {
+export const Main = ({ searchString, setIsEditMovie, setDialogOpened, setIsDeleteMovie }: MainProps) => {
     const [selectedGenre, setSelectedGenre] = useState('');
     const [sorting, setSortingType] = useState('release_date');
 
@@ -22,7 +25,14 @@ export const Main = ({ searchString }: MainProps) => {
                     handleSorting={setSortingType}
                     handleToggle={setSelectedGenre}
                 />
-                <MovieList selectedGenre={selectedGenre} searchString={searchString} sorting={sorting} />
+                <MovieList
+                    selectedGenre={selectedGenre}
+                    searchString={searchString}
+                    sorting={sorting}
+                    setIsEditMovie={setIsEditMovie}
+                    setDialogOpened={setDialogOpened}
+                    setIsDeleteMovie={setIsDeleteMovie}
+                />
             </div>
         </div>
     );

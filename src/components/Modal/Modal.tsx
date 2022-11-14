@@ -8,10 +8,9 @@ interface ModalProps {
     isOpened: boolean;
     onClose(): void;
     children: React.ReactNode;
-    setIsAddMovie: (arg: boolean) => void;
 }
 
-export const Modal = ({ isOpened, children, onClose, setIsAddMovie }: ModalProps) => {
+export const Modal = ({ isOpened, children, onClose }: ModalProps) => {
     const dialogRef = useRef<HTMLDialogElement | null>(null);
     const contentRef = useRef<HTMLDivElement | null>(null);
     const lastActiveElement = useRef<HTMLElement | null>(null);
@@ -47,9 +46,7 @@ export const Modal = ({ isOpened, children, onClose, setIsAddMovie }: ModalProps
                 dialogNode.removeEventListener('cancel', onClose);
             };
         }
-
-        setIsAddMovie(false);
-    }, [onClose, setIsAddMovie]);
+    }, [onClose]);
 
     /**
      * Closes dialog on click outside
@@ -70,9 +67,7 @@ export const Modal = ({ isOpened, children, onClose, setIsAddMovie }: ModalProps
                 dialogNode.removeEventListener('click', onClickOutside);
             };
         }
-
-        setIsAddMovie(false);
-    }, [onClose, setIsAddMovie]);
+    }, [onClose]);
 
     return (
         <dialog ref={dialogRef} className={styles.dialog}>
