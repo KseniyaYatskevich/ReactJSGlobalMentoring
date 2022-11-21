@@ -14,6 +14,8 @@ interface MovieListProps {
     setIsEditMovie: (arg0: boolean) => void;
     setDialogOpened: (arg0: boolean) => void;
     setIsDeleteMovie: (arg0: boolean) => void;
+    setMovieInfo: (arg0: Movie) => void;
+    setShowDescription: (arg0: boolean) => void;
 }
 
 interface Movie {
@@ -37,7 +39,9 @@ export const MovieList = ({
     sorting,
     setIsEditMovie,
     setDialogOpened,
-    setIsDeleteMovie
+    setIsDeleteMovie,
+    setMovieInfo,
+    setShowDescription
 }: MovieListProps) => {
     const [filteredMovies, setFilteredMovies] = useState(movies);
 
@@ -66,6 +70,11 @@ export const MovieList = ({
         [searchString, selectedGenre, sorting]
     );
 
+    const cardClickHandler = (item: Movie) => {
+        setShowDescription(true);
+        setMovieInfo(item);
+    };
+
     return (
         <>
             {filteredMovies.length ? (
@@ -76,11 +85,17 @@ export const MovieList = ({
                     <div className={styles.wrapper}>
                         {filteredMovies.map((movie) => (
                             <MovieCard
-                                {...movie}
+                                movie={movie}
                                 key={movie.id}
                                 setIsEditMovie={setIsEditMovie}
                                 setDialogOpened={setDialogOpened}
                                 setIsDeleteMovie={setIsDeleteMovie}
+                                setMovieInfo={setMovieInfo}
+                                setShowDescription={setShowDescription}
+                                cardClickHandler={cardClickHandler}
+                                // onKeyDown={(movie: Movie) => cardClickHandler(movie)}
+                                // role="button"
+                                // tabIndex={0}
                             />
                         ))}
                     </div>

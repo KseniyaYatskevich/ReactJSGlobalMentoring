@@ -1,8 +1,9 @@
 import { useState } from 'react';
 
-import brokenImage from '../../asset/images/emptyPoster.jpg';
 import More from '../../asset/images/more.svg';
 import Close from '../../asset/images/close.svg';
+
+import { MovieImage } from '../MovieImage/MovieImage';
 
 import styles from './MovieCard.module.scss';
 
@@ -19,21 +20,25 @@ interface Movie {
     revenue: number;
     genres: string[];
     runtime: number;
+}
+
+interface MovieCardProps {
+    movie: Movie;
     setIsEditMovie: (arg0: boolean) => void;
     setDialogOpened: (arg0: boolean) => void;
     setIsDeleteMovie: (arg0: boolean) => void;
+    cardClickHandler: (arg0: Movie) => void;
+    setMovieInfo: (arg0: Movie) => void;
+    setShowDescription: (arg0: boolean) => void;
 }
 
 export const MovieCard = ({
-    title,
-    release_date,
-    poster_path,
-    genres,
+    movie,
     setIsEditMovie,
     setDialogOpened,
-    setIsDeleteMovie
-}: Movie) => {
-    const [imageFailed, setImageFailed] = useState(false);
+    setIsDeleteMovie,
+    cardClickHandler
+}: MovieCardProps) => {
     const [isMoreMenuOppened, setIsMoreMenuOppened] = useState(false);
 
     const moreMenuShow = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -62,47 +67,41 @@ export const MovieCard = ({
         setDialogOpened(true);
     };
 
-    const releaseDate = new Date(release_date).getFullYear();
+    const releaseDate = new Date(movie.release_date).getFullYear();
 
     return (
-        <div className={styles.wrapper}>
-            <a href={title}>
-                {!isMoreMenuOppened ? (
-                    <button className={styles.moreBtn} type="button" onClick={(e) => moreMenuShow(e)}>
-                        <More />
+        <div
+            className={styles.wrapper}
+            onClick={() => cardClickHandler(movie)}
+            onKeyDown={() => cardClickHandler(movie)}
+            role="button"
+            tabIndex={0}
+        >
+            {!isMoreMenuOppened ? (
+                <button className={styles.moreBtn} type="button" onClick={(e) => moreMenuShow(e)}>
+                    <More />
+                </button>
+            ) : (
+                <div className={styles.menu}>
+                    <button className={styles.closeBtn} type="button" onClick={onClose}>
+                        <Close />
                     </button>
-                ) : (
-                    <div className={styles.menu}>
-                        <button className={styles.closeBtn} type="button" onClick={onClose}>
-                            <Close />
-                        </button>
-                        <button className={styles.menuBtn} type="button" onClick={editMovie}>
-                            Edit
-                        </button>
-                        <button className={styles.menuBtn} type="button" onClick={deteleMovie}>
-                            Delete
-                        </button>
-                    </div>
-                )}
-                {!imageFailed ? (
-                    <img
-                        src={poster_path}
-                        className={styles.image}
-                        alt={title}
-                        onError={() => setImageFailed(true)}
-                        loading="lazy"
-                    />
-                ) : (
-                    <img src={brokenImage} alt={title} className={styles.brokenImage} />
-                )}
-                <div className={styles.description}>
-                    <div>
-                        <p className={styles.title}>{title}</p>
-                        <p className={styles.genre}>{genres.join(', ')}</p>
-                    </div>
-                    <div className={styles.year}>{releaseDate}</div>
+                    <button className={styles.menuBtn} type="button" onClick={editMovie}>
+                        Edit
+                    </button>
+                    <button className={styles.menuBtn} type="button" onClick={deteleMovie}>
+                        Delete
+                    </button>
                 </div>
-            </a>
+            )}
+            <MovieImage path={movie.poster_path} title={movie.title} />
+            <div className={styles.description}>
+                <div>
+                    <p className={styles.title}>{movie.title}</p>
+                    <p className={styles.genre}>{movie.genres.join(', ')}</p>
+                </div>
+                <div className={styles.year}>{releaseDate}</div>
+            </div>
         </div>
     );
 };

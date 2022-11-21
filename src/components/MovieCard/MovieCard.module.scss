@@ -5,37 +5,19 @@
     flex-grow: 0;
     flex-basis: 33.3%;
     box-sizing: border-box;
+    cursor: pointer;
 
-    & a {
-        text-decoration: none;
-        margin: 5px;
+    &:hover {
+        .description {
+            opacity: 1;
+        }
 
-        &:hover {
-            .description {
-                opacity: 1;
-            }
-
-            .moreBtn {
-                & > svg {
-                    display: block;
-                }
+        .moreBtn {
+            & > svg {
+                display: block;
             }
         }
     }
-}
-
-.image {
-    flex-shrink: 0;
-    max-height: 100%;
-    max-width: 100%;
-    object-fit: contain;
-}
-
-.brokenImage {
-    flex-shrink: 0;
-    min-height: 509px;
-    max-width: 100%;
-    object-fit: cover;
 }
 
 .description {
@@ -65,7 +47,7 @@
 
 .moreBtn {
     position: absolute;
-    top: 40px;
+    top: 20px;
     right: 20px;
     padding: 0;
     background-color: transparent;
