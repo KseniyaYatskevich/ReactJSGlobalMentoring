@@ -73,7 +73,6 @@ export const AppLayout = () => {
                     setIsEditMovie={setIsEditMovie}
                     setDialogOpened={setDialogOpened}
                     setIsDeleteMovie={setIsDeleteMovie}
-                    setShowDescription={setShowDescription}
                     setMovieInfo={setMovieInfo}
                 />
                 <Footer />
