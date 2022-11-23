@@ -1,0 +1,33 @@
+.wrapper {
+    background: #232323;
+    border-bottom: 10px solid #888888;
+}
+
+.header {
+    background-image: url(../../asset/images/Header.jpg);
+    background-size: cover;
+    padding: 20px;
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1080px;
+}
+
+.button {
+    font-size: 20px;
+    color: #f65261;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 3px;
+    background: rgba(97, 97, 97, 0.678);
+    padding: 10px 20px;
+    cursor: pointer;
+
+    &:hover {
+        background: rgba(97, 97, 97, 0.9);
+    }
+}

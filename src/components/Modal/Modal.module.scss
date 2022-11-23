@@ -1,0 +1,31 @@
+.dialog {
+    padding: 0;
+    background: #232323;
+    border: 0;
+    border-radius: 4px;
+    color: #ffffff;
+
+    &::backdrop {
+        background: #232323;
+        opacity: 0.9;
+    }
+}
+
+.content {
+    position: relative;
+    padding: 30px;
+}
+
+.closeBtn {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    border: 0;
+    background: transparent;
+    opacity: 0.7;
+    cursor: pointer;
+
+    &:hover {
+        opacity: 1;
+    }
+}

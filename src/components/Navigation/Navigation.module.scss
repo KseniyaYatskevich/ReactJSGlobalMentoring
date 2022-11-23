@@ -1,0 +1,34 @@
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 1px solid #080707;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.item {
+    display: block;
+    padding: 20px 10px 20px 10px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: uppercase;
+}
+
+.active {
+    border-bottom: 1px solid #f65261;
+}
+
+.link {
+    text-decoration: none;
+    color: #ffffff;
+}
