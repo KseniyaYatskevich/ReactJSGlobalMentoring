@@ -1,7 +1,10 @@
+import { useContext } from 'react';
 import { Search } from '../Search/Search';
 import { Logo } from '../Logo/Logo';
 
 import styles from './Header.module.scss';
+import { Description } from '../Description/Description';
+import MovieContext from '../../context/MovieContext';
 
 interface HeaderProps {
     searchString: string;
@@ -18,15 +21,23 @@ export const Header = ({ searchString, handleSearch, setDialogOpened, setIsAddMo
         setIsAddMovie(true);
     };
 
+    const { showDescription } = useContext(MovieContext);
+
     return (
         <div className={styles.wrapper}>
-            <div className={styles.content}>
-                <Logo />
-                <button className={styles.button} onClick={handleAddToCart}>
-                    + Add movie
-                </button>
-            </div>
-            <Search searchString={searchString} handleSearch={handleSearch} />
+            {showDescription ? (
+                <Description />
+            ) : (
+                <div className={styles.header}>
+                    <div className={styles.content}>
+                        <Logo />
+                        <button className={styles.button} onClick={handleAddToCart}>
+                            + Add movie
+                        </button>
+                    </div>
+                    <Search searchString={searchString} handleSearch={handleSearch} />
+                </div>
+            )}
         </div>
     );
 };

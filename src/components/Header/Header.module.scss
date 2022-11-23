@@ -1,9 +1,12 @@
 .wrapper {
-    background: #888888;
+    background: #232323;
+    border-bottom: 10px solid #888888;
+}
+
+.header {
     background-image: url(../../asset/images/Header.jpg);
     background-size: cover;
     padding: 20px;
-    border-bottom: 10px solid #888888;
 }
 
 .content {

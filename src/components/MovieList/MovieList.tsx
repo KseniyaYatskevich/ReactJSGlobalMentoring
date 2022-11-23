@@ -93,9 +93,6 @@ export const MovieList = ({
                                 setMovieInfo={setMovieInfo}
                                 setShowDescription={setShowDescription}
                                 cardClickHandler={cardClickHandler}
-                                // onKeyDown={(movie: Movie) => cardClickHandler(movie)}
-                                // role="button"
-                                // tabIndex={0}
                             />
                         ))}
                     </div>
